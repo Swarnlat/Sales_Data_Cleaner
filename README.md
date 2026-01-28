@@ -1,8 +1,9 @@
 
-#  Sales Data Cleaner & Currency Converter
+#   The "Sales Data" Cleaner
 
 ## 1. Project Title & Goal
-This project is a Python-based data cleaning pipeline that processes raw sales CSV data, removes duplicate records, standardizes price formats, converts prices from USD to INR, and exports the cleaned data into a structured JSON file.
+This project is a Python-based ETL pipeline that processes messy sales CSV data, removes duplicates, standardizes price formats, converts prices from USD to INR, and exports a clean JSON report.  
+It demonstrates practical **data cleaning, transformation, and Python programming skills**, making it a real-world data engineering showcase.
 
 ---
 
@@ -27,28 +28,28 @@ clean.json
 ## 3. The Logic (How I Thought)
 
 ### Why did I choose this approach?
-- Used `csv.DictReader` to access CSV rows using column names, improving readability and reducing indexing errors.
-- Implemented a `set()` to efficiently detect and remove duplicate product records.
-- Cleaned and normalized price values before conversion to handle real-world messy data.
-- Used a fixed USD to INR conversion rate (83) to ensure consistent and reproducible results.
-- Exported the final output in JSON format for easy integration with APIs, databases, and frontend systems.
+- Used csv.DictReader to read CSV rows using column names for better readability and fewer indexing errors.
+- Used a set() to efficiently detect and remove duplicate product records.
+- Cleaned and normalized price values before conversion to handle messy real-world data.
+- Applied a fixed USD → INR conversion rate (83) for consistent, reproducible results.
+- Exported output in JSON format for easy integration with APIs, databases, and frontend systems.
 
 ### What was the hardest bug I faced, and how did I fix it?
-The hardest issue was handling price values that contained currency symbols, extra quotes, and whitespace, which caused float conversion errors.
-I fixed this by sanitizing the price string before converting it to a float, ensuring consistent numeric formatting and preventing runtime errors.
+The most challenging issue was handling inconsistent price formats — some had $ signs, extra quotes, or spaces — which caused float conversion errors.
+Solution: Sanitized price strings by removing special characters and whitespace before converting to float. This ensured consistent numeric formatting and prevented runtime errors.
 
 ---
 
 ## 4. Output Screenshots
+The screenshot below shows the final clean_sales.json file opened in a text editor, demonstrating that the data was cleaned, deduplicated, and converted correctly.
 ![Clean Sales JSON Output](screenshots/clean_sales_output.png)
-
 ---
 
 ## 5. Future Improvements
 If I had two more days, I would:
 - Integrate real-time currency exchange rates using an external API.
 - Add advanced error handling and logging for invalid CSV rows.
-- Build a command-line interface to accept dynamic input and output paths.
-- Write automated unit tests for validation and currency conversion.
+- Build a command-line interface to accept dynamic input and output file paths.
+- Write automated unit tests for data validation and currency conversion.
 - Support exporting cleaned data to Excel and database formats.
 
