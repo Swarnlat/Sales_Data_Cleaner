@@ -1,1 +1,1 @@
-![Clean Sales JSON Screenshot](screenshots/Sales_Output.png)
+![Clean Sales JSON Screenshot](screenshots/clean_sales_output.png)
